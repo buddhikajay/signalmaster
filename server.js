@@ -32,4 +32,11 @@ if (config.server.secure) {
 } else {
     httpUrl = "http://localhost:" + port;
 }
+console.log(yetify.logo() + ' -- signal master is running at: ' + httpUrl+' '+config.turnservers.secret+' : '+config.turnservers.urls);
+
 console.log(yetify.logo() + ' -- signal master is running at: ' + httpUrl);
+if (!config.turnorigins || config.turnorigins.indexOf(origin) !== -1) {
+    config.turnservers.forEach(function (server) {
+        console.log(server.secret+" "+server.urls[0]);
+    });
+}
